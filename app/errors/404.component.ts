@@ -5,7 +5,7 @@ import { Component } from "@angular/core";
     <h1 Class="errorMessage">404'd</h1>
     <br/>
     <br/>
-    <p>Page looking for doesn't exist!</p>
+    <h4>Page you are looking for doesn't exist!</h4>
     `,
     styles:[`
     .errorMessage{
@@ -13,6 +13,7 @@ import { Component } from "@angular/core";
         font-size:170px;
         text-align:center;
     }
+    h4{text-align:center;}
     `]
 })
 export class Error404Component{
