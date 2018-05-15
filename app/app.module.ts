@@ -1,20 +1,26 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from '@angular/platform-browser'
 import { EventsListComponent, EventThumbnailComponent ,EventRouteActivator,
-     EventListResolver,EventService,EventDetailsComponent,CreateEventComponent} from './events/index';
+     EventListResolver,EventService,EventDetailsComponent,CreateEventComponent,
+     CreateSessionComponent, SessionListComponent} from './events/index';
 import { NavBarComponent } from "./nav/navbar.component";
 import { ToastrService } from "./common/toastr.service";
 import { Router, RouterModule } from "@angular/router";
 import { appRoutes } from "./routes";
 import { Error404Component } from "./errors/404.component";
 import { EventsAppComponent } from "./events-app.component";
+import { AuthService } from "./user/auth.service";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { collapsibleWellComponent } from "./common/collapsible-well.component";
+
 
 @NgModule({
-imports:[BrowserModule,RouterModule.forRoot(appRoutes)],
+imports:[BrowserModule,RouterModule.forRoot(appRoutes),FormsModule,ReactiveFormsModule],
 declarations:[EventsAppComponent,EventsListComponent, EventThumbnailComponent,NavBarComponent,EventDetailsComponent,
-    CreateEventComponent,Error404Component],
+    CreateEventComponent,Error404Component,CreateSessionComponent,SessionListComponent,collapsibleWellComponent],
 bootstrap:[EventsAppComponent],
-providers:[EventService,ToastrService,EventRouteActivator,EventListResolver, {provide:'CanDeactivateCreateEvent',useValue:CheckDirtyState}]    
+providers:[EventService,ToastrService,EventRouteActivator,AuthService,
+    EventListResolver, {provide:'CanDeactivateCreateEvent',useValue:CheckDirtyState}]    
 })
 
 export class AppModule{
