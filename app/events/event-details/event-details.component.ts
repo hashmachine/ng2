@@ -14,6 +14,9 @@ import { ISession } from "..";
 export class EventDetailsComponent{
     event:any
     addMode:boolean
+    filterBy:string='all'
+    sortBy:string='votes'
+    
     constructor(private eventServive:EventService,private route:ActivatedRoute){
 
     }

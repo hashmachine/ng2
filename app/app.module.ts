@@ -12,12 +12,14 @@ import { EventsAppComponent } from "./events-app.component";
 import { AuthService } from "./user/auth.service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { collapsibleWellComponent } from "./common/collapsible-well.component";
+import { DurationPipe } from "./events/shared/duration.pipe";
 
 
 @NgModule({
 imports:[BrowserModule,RouterModule.forRoot(appRoutes),FormsModule,ReactiveFormsModule],
 declarations:[EventsAppComponent,EventsListComponent, EventThumbnailComponent,NavBarComponent,EventDetailsComponent,
-    CreateEventComponent,Error404Component,CreateSessionComponent,SessionListComponent,collapsibleWellComponent],
+    CreateEventComponent,Error404Component,CreateSessionComponent,SessionListComponent,collapsibleWellComponent,
+    DurationPipe],
 bootstrap:[EventsAppComponent],
 providers:[EventService,ToastrService,EventRouteActivator,AuthService,
     EventListResolver, {provide:'CanDeactivateCreateEvent',useValue:CheckDirtyState}]    
