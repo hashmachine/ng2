@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { EventService } from "../shared/event.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Params} from "@angular/router";
 import { ISession } from "..";
 
 @Component({
@@ -22,8 +22,12 @@ export class EventDetailsComponent{
     }
 
     ngOnInit(){
-        this.event = this.eventServive.getEvent(
-            +this.route.snapshot.params['id'])
+        this.route.params.forEach((params:Params)=>{
+            this.event = this.eventServive.getEvent(
+                +params['id'])
+                this.addMode =false
+        })
+        
     }
 
     addSession(){
