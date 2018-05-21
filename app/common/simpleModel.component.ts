@@ -14,7 +14,7 @@ import { JQ_TOKEN } from "./index";
                 </button>
                 <h4 class="modal-title">{{title}}</h4>
             </div>
-            <div class="modal-body"(click)="closeModal()">
+            <div class="modal-body" (click)="closeModal()">
                 <ng-content></ng-content>
             </div>
         </div>
@@ -33,8 +33,9 @@ export class SimpleModalComponent{
 
     constructor(@Inject(JQ_TOKEN) private $:any ){}
 
+    //to close the dialog box once user clicks on any result
     closeModal(){
         this.$(this.containerEl.nativeElement).modal('hide')
     }
 
-}
+}   

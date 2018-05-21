@@ -1,6 +1,6 @@
 import { Injectable,EventEmitter } from "@angular/core";
 import  { Subject,Observable } from 'rxjs/RX';
-import { IEvent, ISession } from ".";
+import { IEvent, ISession } from "./event.model";
 
 Injectable()
 export class EventService{
@@ -23,6 +23,7 @@ export class EventService{
       let index = EVENTS.findIndex(x=>x.id = event.id)
       EVENTS[index] = event
     }
+    
     searchSessions(searchTerm:string){
       var term = searchTerm.toLocaleLowerCase()
       var results : ISession[] = []

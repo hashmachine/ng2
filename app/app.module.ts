@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from '@angular/platform-browser'
 import { EventsListComponent, EventThumbnailComponent ,EventRouteActivator,
      EventListResolver,EventService,EventDetailsComponent,CreateEventComponent,
-     CreateSessionComponent, SessionListComponent} from './events/index';
+     CreateSessionComponent, SessionListComponent, UpvoteComponent, VoterService} from './events/index';
 import { NavBarComponent } from "./nav/navbar.component";
 import { TOASTR_TOKEN, Toastr, collapsibleWellComponent,JQ_TOKEN, SimpleModalComponent, ModalTriggerDirective } from "./common/index";
 import { Router, RouterModule } from "@angular/router";
@@ -21,11 +21,11 @@ imports:[BrowserModule,RouterModule.forRoot(appRoutes),FormsModule,ReactiveForms
 
 declarations:[EventsAppComponent,EventsListComponent, EventThumbnailComponent,NavBarComponent,EventDetailsComponent,
     CreateEventComponent,Error404Component,CreateSessionComponent,SessionListComponent,collapsibleWellComponent,
-    DurationPipe,SimpleModalComponent,ModalTriggerDirective],
+    DurationPipe,SimpleModalComponent,ModalTriggerDirective,UpvoteComponent],
 
 bootstrap:[EventsAppComponent],
 
-providers:[EventService,EventRouteActivator,AuthService,EventListResolver,
+providers:[EventService,EventRouteActivator,AuthService,EventListResolver,VoterService,
     {provide:'CanDeactivateCreateEvent',useValue:CheckDirtyState},
     {provide: TOASTR_TOKEN,useValue: toastr},
     {provide:JQ_TOKEN,useValue:jQuery}]    
